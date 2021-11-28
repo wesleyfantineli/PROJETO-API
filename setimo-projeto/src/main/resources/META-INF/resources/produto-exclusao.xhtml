@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xml:lang="en"
+      lang="en">
+
+<f:metadata>
+    <f:viewAction action="#{produtoBean.excluir}"/>
+</f:metadata>
+
+<h:head>
+    <title>Produto</title>
+    <h:outputScript name="locales/locale-pt.js" library="primefaces"/>
+</h:head>
+
+<h:body >
+    <h:form style=" ">
+        <ui:include src="menu.xhtml"/>
+        <p:breadCrumb style="">
+            <p:menuitem value="Home"/>
+            <p:menuitem value="Cadastro"/>
+            <p:menuitem value="Produto" outcome="produto-listar"/>
+            <p:menuitem value="Exclusão"/>
+        </p:breadCrumb>
+        <p:card style="">
+            <p:messages closable="true">
+                <p:autoUpdate/>
+            </p:messages>
+            <h:panelGrid columns="1" style="width: 100%">
+                <p:inputText value="#{produtoBean.produto.nome}" placeholder="Nome" disabled="true">
+                    <p:autoUpdate/>
+                </p:inputText>
+
+                <p:inputNumber value="#{produtoBean.produto.preco}" placeholder="Preço" decimalSeparator=","  disabled="true">
+                    <p:autoUpdate/>
+                </p:inputNumber>
+
+                <p:inputText value="#{produtoBean.produto.quantidade}" placeholder="Quantidade"  disabled="true">
+                    <p:autoUpdate/>
+                    <p:keyFilter mask="pint" />
+                </p:inputText>
+
+                <p:datePicker value="#{produtoBean.produto.validade}" placeholder="Validade"  disabled="true">
+                    <p:autoUpdate/>
+                </p:datePicker>
+
+
+
+            </h:panelGrid>
+
+            <h:panelGrid columns="2" style="margin-top: 30px;">
+                <p:commandButton value="Excluir" styleClass="ui-button-success" actionListener="#{produtoBean.excluir}" icon="pi pi-save"/>
+                <p:button value="Voltar" outcome="produto-listar.xhtml" icon="pi pi-times"/>
+            </h:panelGrid>
+        </p:card>
+    </h:form>
+</h:body>
+
+</html>
