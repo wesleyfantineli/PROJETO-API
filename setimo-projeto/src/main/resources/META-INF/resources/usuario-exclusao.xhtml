@@ -13,7 +13,7 @@
       lang="en">
 
 <f:metadata>
-    <f:viewAction action="#{produtoBean.excluir}"/>
+    <f:viewAction action="#{usuarioBean.car}"/>
 </f:metadata>
 
 <h:head>
@@ -27,7 +27,7 @@
         <p:breadCrumb style="">
             <p:menuitem value="Home"/>
             <p:menuitem value="Cadastro"/>
-            <p:menuitem value="Produto" outcome="produto-listar"/>
+            <p:menuitem value="Produto" outcome="usuario-listar"/>
             <p:menuitem value="Exclusão"/>
         </p:breadCrumb>
         <p:card style="">
@@ -35,30 +35,23 @@
                 <p:autoUpdate/>
             </p:messages>
             <h:panelGrid columns="1" style="width: 100%">
-                <p:inputText value="#{produtoBean.produto.nome}" placeholder="Nome" disabled="true">
+                <p:inputText value="#{usuarioBean.usuario.USR_EMAIL}" placeholder="Email" disabled="true">
                     <p:autoUpdate/>
                 </p:inputText>
 
-                <p:inputNumber value="#{produtoBean.produto.preco}" placeholder="Preço" decimalSeparator=","  disabled="true">
+                <p:inputText value="#{usuarioBean.usuario.USR_SENHA}" placeholder="Senha" disabled="true">
                     <p:autoUpdate/>
-                </p:inputNumber>
-
-                <p:inputText value="#{produtoBean.produto.quantidade}" placeholder="Quantidade"  disabled="true">
-                    <p:autoUpdate/>
-                    <p:keyFilter mask="pint" />
                 </p:inputText>
 
-                <p:datePicker value="#{produtoBean.produto.validade}" placeholder="Validade"  disabled="true">
-                    <p:autoUpdate/>
-                </p:datePicker>
+
 
 
 
             </h:panelGrid>
 
             <h:panelGrid columns="2" style="margin-top: 30px;">
-                <p:commandButton value="Excluir" styleClass="ui-button-success" actionListener="#{produtoBean.excluir}" icon="pi pi-save"/>
-                <p:button value="Voltar" outcome="produto-listar.xhtml" icon="pi pi-times"/>
+                <p:commandButton value="Excluir" styleClass="ui-button-success" actionListener="#{usuarioBean.excluir}" icon="pi pi-save"/>
+                <p:button value="Voltar" outcome="usuario-listar.xhtml" icon="pi pi-times"/>
             </h:panelGrid>
         </p:card>
     </h:form>

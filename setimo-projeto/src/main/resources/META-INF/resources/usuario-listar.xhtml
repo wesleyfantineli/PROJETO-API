@@ -13,11 +13,11 @@
       lang="en">
 
 <f:metadata>
-    <f:viewAction action="#{produtoBean.listar}"/>
+    <f:viewAction action="#{usuarioBean.listar}"/>
 </f:metadata>
 
 <h:head>
-    <title>Listagem de Produtos</title>
+    <title>Listagem de Usuario</title>
     <h:outputScript name="locales/locale-pt.js" library="primefaces"/>
 </h:head>
 
@@ -35,31 +35,24 @@
                 <p:autoUpdate/>
             </p:messages>
 
-            <p:dataTable value="#{produtoBean.produtos}" var="produto" >
+            <p:dataTable value="#{usuarioBean.usuarios}" var="usuario" >
                 <f:facet name="header">
-                    <p:button  icon="pi pi-plus" outcome="produto-novo.xhtml" />
+                    <p:button  icon="pi pi-plus" outcome="usuario-novo.xhtml" />
                 </f:facet>
                 <p:column headerText="Nome">
-                    <h:outputText value="#{produtoBean.produto.nome}" />
+                    <h:outputText value="#{usuario.USR_EMAIL}" />
                 </p:column>
-                <p:column headerText="Preço">
-                    <h:outputText value="#{produtoBean.produto.preco}" >
-                        <f:convertNumber pattern="0.00" />
-                    </h:outputText>
-                </p:column>
-                <p:column headerText="Quantidade">
-                    <h:outputText value="#{produtoBean.produto.quantidade}" />
-                </p:column>
-                <p:column headerText="Validade">
-                    <h:outputText value="#{produtoBean.produto.validade}" >
+                <p:column headerText="Senha">
+                    <h:outputText value="#{usuario.USR_SENHA}" >
 
                     </h:outputText>
                 </p:column>
+
 
                 <p:column headerText="">
-                    <p:commandButton icon="pi pi-pencil" actionListener="#{produtoBean.selecionarEdicao(produto)}" />
+                    <p:commandButton icon="pi pi-pencil" actionListener="#{usuarioBean.editar(usuario)}" />
                     <p:spacer width="1"/>
-                    <p:commandButton icon="pi pi-trash" actionListener="#{produtoBean.selecionarExclusao(produto)}"  />
+                    <p:commandButton icon="pi pi-trash" actionListener="#{usuarioBean.selecionarExclusao(usuario)}"  />
                 </p:column>
             </p:dataTable>
         </p:card>

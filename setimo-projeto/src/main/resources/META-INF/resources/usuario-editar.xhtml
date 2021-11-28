@@ -13,11 +13,11 @@
       lang="en">
 
 <f:metadata>
-    <f:viewAction action="#{produtoBean.carregar}"/>
+    <f:viewAction action="#{usuarioBean.car}"/>
 </f:metadata>
 
 <h:head>
-    <title>Produto</title>
+    <title>Usuario</title>
     <h:outputScript name="locales/locale-pt.js" library="primefaces"/>
 </h:head>
 
@@ -27,7 +27,7 @@
         <p:breadCrumb style="">
             <p:menuitem value="Home"/>
             <p:menuitem value="Cadastro"/>
-            <p:menuitem value="Produto" outcome="produto-listar"/>
+            <p:menuitem value="Usuario" outcome="usuario-listar"/>
             <p:menuitem value="Edição"/>
         </p:breadCrumb>
         <p:card style="">
@@ -35,31 +35,24 @@
                 <p:autoUpdate/>
             </p:messages>
             <h:panelGrid columns="1" style="width: 100%">
-                <p:inputText value="#{produtoBean.produto.nome}" placeholder="Nome" >
+
+
+                <p:inputText value="#{usuarioBean.usuario.USR_EMAIL}" placeholder="Email" >
                     <p:autoUpdate/>
                 </p:inputText>
 
-                <p:inputNumber value="#{produtoBean.produto.preco}" placeholder="Preço" decimalSeparator=",">
+                <p:inputText value="#{usuarioBean.usuario.USR_SENHA}" placeholder="Senha">
                     <p:autoUpdate/>
-                </p:inputNumber>
 
-                <p:inputText value="#{produtoBean.produto.quantidade}" placeholder="Quantidade">
-                    <p:autoUpdate/>
-                    <p:keyFilter mask="pint" />
                 </p:inputText>
-
-                <p:datePicker value="#{produtoBean.produto.validade}" placeholder="Validade">
-                    <f:convertDateTime type="localDate" pattern="dd/MM/yyyy" />
-                    <p:autoUpdate/>
-                </p:datePicker>
 
 
 
             </h:panelGrid>
 
             <h:panelGrid columns="2" style="margin-top: 30px;">
-                <p:commandButton value="Editar" styleClass="ui-button-success" actionListener="#{produtoBean.salvar}" icon="pi pi-save"/>
-                <p:button value="Voltar" outcome="produto-listar.xhtml" icon="pi pi-times"/>
+                <p:commandButton value="Editar" styleClass="ui-button-success" actionListener="#{usuarioBean.salvar}" icon="pi pi-save"/>
+                <p:button value="Voltar" outcome="usuario-listar.xhtml" icon="pi pi-times"/>
             </h:panelGrid>
         </p:card>
     </h:form>
