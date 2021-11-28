@@ -34,7 +34,7 @@ public class ProdutoBean {
 
     public void listar(){
         RestTemplate restTemplate = new RestTemplate();
-        Produto[] vetor = restTemplate.getForObject("http//localhost:8080/produtos", Produto[].class);
+        Produto[] vetor = restTemplate.getForObject("http://localhost:8080/produtos", Produto[].class);
         produtos = Arrays.asList(vetor);
     }
 
